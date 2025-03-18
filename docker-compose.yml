@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  cosmosdb:
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
+    mem_limit: 3g
+    cpu_count: 2
+    environment:
+      - AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10
+      - AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=true
+    ports:
+      - "8081:8081"      # Portal/REST API
+      - "10251:10251"    # Service endpoint
+      - "10252:10252"    # SDK endpoint
+      - "10253:10253"    # SDK endpoint
+      - "10254:10254"    # Gateway endpoint
+    volumes:
+      - cosmos-data:/data/cosmosdb
+    # Important: CosmosDB emulator requires HTTPS and generates self-signed certificates
+    # This ensures the certs are properly mounted and accessible to the container
+    cap_add:
+      - SYS_PTRACE
+
+volumes:
+  cosmos-data:
