@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: streaming-app
+
+  cosmos:
+    uri: https://localhost:8081
+    key: C2FBBG4TT0CA==
+    database: rcar
+    populate-query-metrics: true
