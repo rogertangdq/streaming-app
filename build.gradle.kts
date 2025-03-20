@@ -6,7 +6,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.7"
 }
 
-group = "org.cyberelay"
+group = "org.cyberelay.streaming"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -15,24 +15,23 @@ java {
 	}
 }
 
-configurations {
-	compileOnly {
-		extendsFrom(configurations.annotationProcessor.get())
-	}
-}
-
 repositories {
 	mavenCentral()
 }
 
+/**
+ * Spring version mapping:
+ * Spring Boot version: 		3.4.x
+ * Spring Cloud version: 		2024.0.x
+ * Spring Cloud Azure version: 	5.x.x
+ * Spring Framework version: 	6.2.x
+ * JDK Version Range:			JDK 17-23
+ */
 extra["springCloudAzureVersion"] = "5.20.1"
 extra["springCloudVersion"] = "2024.0.0"
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.azure.spring:spring-cloud-azure-starter-actuator")
 	implementation("com.azure.spring:spring-cloud-azure-starter-data-cosmos")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
