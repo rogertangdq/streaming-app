@@ -1,4 +1,4 @@
-package org.cyberelay.streamingapp
+package org.cyberelay.streaming.app
 
 import org.springframework.boot.builder.SpringApplicationBuilder
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer

@@ -1,9 +1,13 @@
 spring:
+  profiles:
+    active: local
   application:
     name: streaming-app
 
+azure:
   cosmos:
-    uri: https://localhost:8081
-    key: C2FBBG4TT0CA==
+    uri: <COSMOS_DB_URI>
+    key: <COSMOS_DB_KEY>
     database: rcar
     populate-query-metrics: true
+    connection-mode: gateway
